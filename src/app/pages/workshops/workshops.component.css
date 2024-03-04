@@ -15,11 +15,7 @@ mat-panel-description{
     width: 100%;
     display: flex;
     justify-content: space-between;
-}
-.details-buttons > div{
-    display: flex;
-    justify-content: space-between;
-    width: 170px;
+    gap: 16px;
 }
 .buttons-title{
     width: 78px
