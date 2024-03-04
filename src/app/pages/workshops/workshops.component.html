@@ -1,0 +1,46 @@
+<div class="center-flex">
+    <mat-form-field class="search-input">
+        <mat-label>Pesquisar workshop por nome: </mat-label>
+        <input matInput (input)="search($event)" placeholder="Ex. Rodri..">
+    </mat-form-field>
+</div>
+
+<div class="center-flex">
+    <mat-card>
+            <mat-expansion-panel disabled class="disabled-panel">
+                <mat-expansion-panel-header >
+                    <mat-panel-title>
+                        Id
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Nome
+                        <div class="buttons-title">
+                            ações
+                        </div>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            @for (workshop of workshops; track $index) {
+                <mat-accordion>
+                    <mat-expansion-panel class="no-border" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{workshop.id}}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{workshop.name}}
+                                <button mat-raised-button color="warn" >Delete</button>
+                            </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>{{workshop.description}}</p>
+                    <p>{{workshop.realizationDate}}</p>
+                    <button mat-button (click)="openDialog(workshop.id)">Open dialog</button>
+                    
+                    </mat-expansion-panel>
+                </mat-accordion>
+            <mat-divider></mat-divider>
+        }
+        
+    </mat-card>
+</div>
+

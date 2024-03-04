@@ -1,0 +1,32 @@
+mat-card{
+    background-color: rgba(255, 255, 255, 0.089);
+}
+mat-divider{
+    background-color: transparent;
+}
+mat-expansion-panel{
+    padding: 4px;
+}
+mat-panel-description{
+    color: rgb(247, 241, 241);
+    display: flex;
+    justify-content: space-between;
+}
+.buttons-title{
+    width: 78px
+}
+.scope-id{
+    width: 16px !important;
+}
+.no-border{
+    border-radius: 0px !important;
+    box-shadow: none !important;
+}
+.disabled-panel{
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.116);
+}
+.disabled-panel > mat-expansion-panel-header{
+    color: white !important;
+}
