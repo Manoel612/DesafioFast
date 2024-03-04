@@ -1,5 +1,7 @@
 mat-dialog-content{
     padding: 0px !important;
+    height: 800px;
+    box-shadow: none;
 }
 mat-form-field{
     width: 100%;
