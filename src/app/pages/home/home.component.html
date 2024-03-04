@@ -5,7 +5,7 @@
         <input matInput (input)="search($event)" placeholder="Ex. Rodri..">
     </mat-form-field>
 </div>
-<div class="center-flex">
+<div class="center-flex-response">
     <mat-card>
         <table mat-table [dataSource]="collaborators" class="mat-elevation-z8">
             
@@ -21,7 +21,10 @@
 
             <ng-container matColumnDef="Buttons">
                 <th mat-header-cell *matHeaderCellDef> Ações </th>
-                <td mat-cell *matCellDef="let collaborator"> <button mat-raised-button color="warn" >Delete</button> </td>
+                <td mat-cell *matCellDef="let collaborator">
+                    <button mat-raised-button color="warn" (click)="deleteProcess(collaborator.id)" >Delete</button> 
+                    <!-- <button mat-raised-button color="accent" >Editar</button>  -->
+                </td>
             </ng-container>
             
             <tr mat-header-row *matHeaderRowDef="columns"></tr>

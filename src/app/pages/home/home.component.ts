@@ -45,6 +45,15 @@ export class HomeComponent implements OnInit {
       return collaborator.name.toLowerCase().includes(value);
     })
   }
-
+  deleteProcess(id: number){
+    this.collaboratorsService.DeleteCollaborators(id).subscribe(response => {
+      console.log(response);
+      this.collaboratorsService.GetAllCollaborators().subscribe(response => {
+        this.collaborators = response.data;
+        this.collaboratorsGeneral = response.data;
+        console.log(response.data);
+      })
+    });
+  }
   
 }

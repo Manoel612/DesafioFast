@@ -4,13 +4,22 @@ mat-card{
 mat-divider{
     background-color: transparent;
 }
-mat-expansion-panel{
-    padding: 4px;
-}
 mat-panel-description{
     color: rgb(247, 241, 241);
+}
+.details-card{
+    padding: 8px;
+}
+.details-buttons{
+    margin-top: 16px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.details-buttons > div{
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
 }
 .buttons-title{
     width: 78px

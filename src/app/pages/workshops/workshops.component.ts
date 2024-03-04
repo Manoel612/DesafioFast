@@ -56,30 +56,35 @@ export class WorkshopsComponent {
     const target = event.target as HTMLInputElement;
     const value = target.value.toLowerCase();
     
-    console.log(value)
+    console.log(value);
     
     this.workshops = this.workshopsGeneral.filter(workshop => {
       return workshop.name.toLowerCase().includes(value);
-    })
+    });
   }
+
+  deleteProcess(id: number){
+    this.workshopsService.DeleteWorkshop(id).subscribe(response => {
+      console.log(response);
+      this.workshopsService.GetAllWorkshops().subscribe(response => {
+
+        const data = response.data;
   
-  /* 
-    collaboratorsList(workshopId: number){
-    this.collaboratorsInWorkshop = [];
-    this.recordsService.GetAllCollaboratorsInWorkshop(workshopId).subscribe(response => {
-      const data = response.data;
-      this.collaboratorsInWorkshop = data;
-      console.log(data);
-      console.log(this.expandedPanels)
-    })
-    this.viewCollaborators = true;
-  } 
-  */
+        data.map((item) => {
+          item.realizationDate = new Date(item.realizationDate).toLocaleDateString('pt-Br');
+        });
+  
+        this.workshops = data;
+        this.workshopsGeneral = data;
+        console.log(data);
+      });
+    });
+  }
 
   openDialog(workshopId: number) {
     const dialogRef = this.dialog.open(RecordComponent, 
       {
-        width: '350px',
+        width: '600px',
         data: {propWorkshopId: workshopId}
       }
     );

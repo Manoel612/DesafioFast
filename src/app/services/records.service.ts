@@ -20,9 +20,6 @@ export class RecordsService {
   GetOneRecord(id: number) : Observable<ResponseInterface<RecordInterface>>{
     return this.http.get<ResponseInterface<RecordInterface>>(`${this.apiUrl}/${id}`);
   }
-  PostRecord(record : RecordInterface) : Observable<ResponseInterface<RecordInterface>>{
-    return this.http.post<ResponseInterface<RecordInterface>>(this.apiUrl, record);
-  }
   PutRecord(record : RecordInterface) : Observable<ResponseInterface<RecordInterface>>{
     return this.http.put<ResponseInterface<RecordInterface>>(this.apiUrl, record );
   }
@@ -30,8 +27,9 @@ export class RecordsService {
     return this.http.delete<ResponseInterface<RecordInterface>>(`${this.apiUrl}/${id}`);
   }
   AddCollaborator(collaboratorId: number, recordId: number) : Observable<ResponseInterface<CollaboratorInterface>>{
-    return this.http.post<ResponseInterface<CollaboratorInterface>>(`${this.apiUrl}/${recordId}/AddCollaborator`, collaboratorId);
+    return this.http.put<ResponseInterface<CollaboratorInterface>>(`${this.apiUrl}/${recordId}/AddCollaborator`, collaboratorId);
   }
+  
   RemoveCollaborator(collaboratorId: number, recordId: number) : Observable<ResponseInterface<CollaboratorInterface>>{
     return this.http.put<ResponseInterface<CollaboratorInterface>>(`${this.apiUrl}/${recordId}/RemoveCollaborator`, collaboratorId);
   }
